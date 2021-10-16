@@ -1,0 +1,63 @@
+<div class="py-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <span class="anchor" id="formLogin"></span>
+
+      <!-- form card login -->
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">Login</h3>
+        </div>
+        <div class="card-body">
+          <form #userlogin="ngForm" (ngSubmit)="loginUser()">
+            <!-- <form> -->
+            <div>
+              <label>Username</label>
+              <!-- .touched and .dirty are ngModel class properties -->
+              <!-- these class properties are added with the help of #email="ngModel" -->
+              <!-- #email is a reference to the input to get value from it  -->
+              <input
+                type="email"
+                name="email"
+                [(ngModel)]="user.email"
+                #email="ngModel"
+                [class.is-invalid]="email.invalid && email.touched"
+                pattern="^[a-z0-9.%+]+@[a-z09.-]+\.[a-z]{2,4}"
+                required
+              />
+              <small
+                class="text-danger"
+                [class.d-none]="email.valid && email.touched"
+                >Enter valid email</small
+              >
+            </div>
+            <div>
+              <label for="uname1">Username</label>
+              <input
+                type="text"
+                name="uname"
+                [(ngModel)]="user.uname"
+                required
+              />
+            </div>
+            <div>
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                [(ngModel)]="user.password"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-success float-right">
+              Login
+            </button>
+          </form>
+        </div>
+        <!--/card-block-->
+      </div>
+      <!-- /form card login -->
+    </div>
+  </div>
+</div>
